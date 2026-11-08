@@ -1,0 +1,15 @@
+# Dependencias Esta carpeta contiene todas las 
+# librerías necesarias para correr Cypress y Node. 
+#Es sumamente pesada y el challenge indica explícitamente 
+#que no debe subirse al repositorio 
+#(se regenera en la computadora de cualquier compañero ejecutando npm install).
+node_modules/
+
+# Archivos de ejecución de Cypress y sistema operativo
+# Evita que se suban capturas de pantalla o grabaciones automáticas 
+# que Cypress pueda generar localmente durante tus pruebas, manteniendo 
+# el repositorio limpio solo con el código fuente y tus configuraciones.
+.DS_Store
+Thumbs.db
+cypress/videos/
+cypress/screenshots/
