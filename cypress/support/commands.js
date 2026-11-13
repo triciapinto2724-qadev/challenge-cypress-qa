@@ -1,9 +1,8 @@
 Cypress.Commands.add('visitar', (ruta = '/') => {
   const path = ruta.startsWith('/') ? ruta : `/${ruta}`
 
-  const destino = Cypress.env('useHashRouting')
-    ? `/#${path}`
-    : path
+  // Forzamos el uso de hash para que apunte a /#/auth/login en lugar de /auth/login
+  const destino = `/#${path}`
 
   cy.visit(destino)
 })

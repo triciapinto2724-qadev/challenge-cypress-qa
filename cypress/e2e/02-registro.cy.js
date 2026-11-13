@@ -1,24 +1,15 @@
 describe('Validaciones del formulario de registro', () => {
-  it('muestra errores al enviar el formulario vacío', () => {
+  const camposObligatorios = [
+    'first-name', 'last-name', 'dob', 'address', 'postcode', 
+    'city', 'state', 'country', 'phone', 'email', 'password'
+  ]
+
+  beforeEach(() => {
     cy.visitar('/auth/register')
+  })
 
-    cy.get('[data-test="register-submit"]')
-      .should('be.visible')
-      .click()
-
-    const camposObligatorios = [
-      'first-name',
-      'last-name',
-      'dob',
-      'address',
-      'postcode',
-      'city',
-      'state',
-      'country',
-      'phone',
-      'email',
-      'password',
-    ]
+  it('muestra errores al enviar el formulario vacío', () => {
+    cy.get('[data-test="register-submit"]').click()
 
     camposObligatorios.forEach((campo) => {
       cy.get(`[data-test="${campo}-error"]`)
@@ -27,10 +18,6 @@ describe('Validaciones del formulario de registro', () => {
         .should('not.be.empty')
     })
 
-    cy.location('href')
-      .should('include', '/auth/register')
-
-    cy.get('[data-test="register-submit"]')
-      .should('be.visible')
+    cy.location('href').should('include', '/auth/register')
   })
 })

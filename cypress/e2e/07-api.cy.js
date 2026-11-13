@@ -1,20 +1,22 @@
-describe('Prueba de API', () => {
+describe('Pruebas de API', () => {
   it('obtiene productos y un token de acceso', () => {
-    const apiUrl = Cypress.env('apiUrl')
+    // Definimos la URL de la API directamente sin depender de env/config
+    const apiUrl = 'https://api-with-bugs.practicesoftwaretesting.com'
 
+    // 1. Petición GET para la lista de productos
+    cy.request({
+      method: 'GET',
+      url: `${apiUrl}/products`,
+    }).then((response) => {
+      expect(response.status).to.eq(200)
+      expect(response.body)
+        .to.have.property('data')
+        .that.is.an('array')
+        .and.is.not.empty
+    })
+
+    // 2. Petición POST para el login por API usando el fixture
     cy.fixture('users').then((users) => {
-      cy.request({
-        method: 'GET',
-        url: `${apiUrl}/products`,
-      }).then((response) => {
-        expect(response.status).to.eq(200)
-
-        expect(response.body)
-          .to.have.property('data')
-          .that.is.an('array')
-          .and.is.not.empty
-      })
-
       cy.request({
         method: 'POST',
         url: `${apiUrl}/users/login`,
@@ -25,7 +27,6 @@ describe('Prueba de API', () => {
         log: false,
       }).then((response) => {
         expect(response.status).to.eq(200)
-
         expect(response.body)
           .to.have.property('access_token')
           .that.is.a('string')
