@@ -4,7 +4,7 @@ Proyecto de QA automatizado y manual realizado como parte del equipo para la eva
 
 ## 📋 Enlaces del Proyecto
 * **Tablero de Trello (Bugs):** [a la espera de terminarlo y colocarlo publico]
-* **Plan de Casos de Prueba:** https://docs.google.com/spreadsheets/d/1tTQ-Ql8ZSYVGpc1IpN1Ikco8yOHuMqIyyw1Z9-v3nPk/edit?usp=sharing
+* **Plan de Casos de Prueba:** https://docs.google.com/spreadsheets/d/1vyyn6-tjG2A7CjdADZ_oj4k6NldTRoPo/edit?usp=sharing&ouid=105349754058053297246&rtpof=true&sd=true
 
 ## 👥 Integrantes del Grupo
 * Jesica Montaño Paz  – jesica.montaniopaz@gmail.com
