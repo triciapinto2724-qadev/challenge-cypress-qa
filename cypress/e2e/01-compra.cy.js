@@ -27,6 +27,23 @@ describe('Compra exitosa', () => {
           .should('be.visible')
           .select(checkout.paymentMethod)
 
+        // Completar los campos de cuenta si la opción de pago los requiere
+        cy.get('body').then(($body) => {
+          if ($body.find('[data-test="account-name"]').length > 0) {
+            cy.get('[data-test="account-name"]')
+              .should('be.visible')
+              .clear()
+              .type(checkout.accountName || 'Cuenta de Prueba');
+          }
+          if ($body.find('[data-test="account-number"]').length > 0) {
+            cy.get('[data-test="account-number"]')
+              .should('be.visible')
+              .clear()
+              .type(checkout.accountNumber || '123456789');
+          }
+        });
+        
+        // Ahora el botón se habilitará correctamente y se podrá hacer clic
         cy.get('[data-test="finish"]')
           .should('be.visible')
           .and('be.enabled')

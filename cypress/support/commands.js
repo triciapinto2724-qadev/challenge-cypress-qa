@@ -83,24 +83,39 @@ Cypress.Commands.add('llenarContacto', (datos) => {
     .type(datos.message)
 })
 
-Cypress.Commands.add('completarDireccion', (datos) => {
+Cypress.Commands.add('completarDireccion', (checkout) => {
+  // 1. Dirección (Asegúrate de que este bloque esté completo y limpio)
   cy.get('[data-test="address"]')
+    .should('be.visible')
     .clear()
-    .type(datos.address)
+    .type('{selectall}{backspace}')
+    .type(checkout.address);
 
+  // 2. Ciudad (City)
   cy.get('[data-test="city"]')
+    .should('be.visible')
     .clear()
-    .type(datos.city)
+    .type('{selectall}{backspace}')
+    .type(checkout.city);
 
+  // 3. Estado / Provincia (State)
   cy.get('[data-test="state"]')
+    .should('be.visible')
     .clear()
-    .type(datos.state)
+    .type('{selectall}{backspace}')
+    .type(checkout.state);
 
+  // 4. País (Country)
   cy.get('[data-test="country"]')
+    .should('be.visible')
     .clear()
-    .type(datos.country)
+    .type('{selectall}{backspace}')
+    .type(checkout.country);
 
+  // 5. Código Postal (Postcode)
   cy.get('[data-test="postcode"]')
+    .should('be.visible')
     .clear()
-    .type(datos.postcode)
-})
+    .type('{selectall}{backspace}')
+    .type(checkout.postcode);
+});
