@@ -2,7 +2,7 @@ describe('Eliminar un producto del carrito', () => {
   it('deja el carrito vacío al eliminar el producto agregado', () => {
     cy.agregarProductoAlCarrito()
 
-    cy.get('[data-test="product-remove"]')
+    cy.get('a.btn-danger')
       .should('have.length', 1)
       .and('be.visible')
       .click()
