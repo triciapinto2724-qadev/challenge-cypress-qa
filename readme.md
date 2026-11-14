@@ -8,6 +8,7 @@ Proyecto de QA automatizado y manual realizado como parte del equipo para la eva
 
 ## 👥 Autor
 * Patricia Veronica Pinto Colque – pinto.colque.pv@gmail.com
+* Jesica del Pilar Montaño Paz - jesica.montaniopaz@gmail.com
 
 ## 🛠️ Estructura y Ejecución
 1. Clonar el repositorio.
